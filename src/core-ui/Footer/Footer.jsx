@@ -1,11 +1,10 @@
 import React from 'react'
-import logo from '../../assets/images/logo/logo.png'
-import payment from '../../assets/images/icon-img/payment.png'
+import logo from '../../assets/images/logo/logo.png';
+import payment from '../../assets/images/icon-img/payment.png';
 
 
 
 function Footer() {
-
 
     return (
         <footer className="footer-area">
@@ -58,7 +57,7 @@ function Footer() {
                                     <h3 className="footer-title">My Account</h3>
                                     <ul>
                                         <li>
-                                            <a href="my-account.html">My Account</a>
+                                            <a href="my-account.html"></a>
                                         </li>
                                         <li>
                                             <a href="#">Order History</a>

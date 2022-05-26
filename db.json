@@ -1,0 +1,137 @@
+{
+    "products": [
+        {
+            "id" : 1,
+            "name" : "Brown Brim",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-1_k3swol.png",
+            "price" : 25,
+            "category" : "Soft"
+          },
+          {
+            "id" : 2,
+            "name" : "Blue Beanie",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883930/images/product-9_mj9mxp.png",
+            "price" : 18,
+            "category" : "Soft",
+            "sale" : 10
+          },
+          {
+            "id" : 3,
+            "name" : "Brown Cowboy",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883930/images/product-8_tlhlar.png",
+            "price" : 35,
+            "category" : "Soft"
+          },
+          {
+            "id" : 4,
+            "name" : "Grey Brim",
+            "imageUrl" :  "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-5_lwrman.png",
+            "price" : 25,
+            "category" : "Tables",
+            "sale" : 15
+          },
+          {
+            "id" : 5,
+            "name" : "Green Beanie",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883930/images/product-7_dz1g0f.png",
+            "price" : 18,
+            "category" : "Tables"
+          },
+          {
+            "id" : 6,
+            "name" : "Palm Tree Cap",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-4_xquasb.png",
+            "price" : 14,
+            "category" : "Tables"
+          },
+          {
+            "id" : 7,
+            "name" : "Red Beanie",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-6_acdljc.png",
+            "price" : 18,
+            "category": "Modern",
+            "sale" :15
+          },
+          {
+            "id" : 8,
+            "name" : "Wolf Cap",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-2_f8cdal.png",
+            "price" : 14,
+            "category" : "Modern"
+          },
+          {
+            "id" : 9,
+            "name" : "Blue Snapback",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-3_dn71jo.png ",
+            "price" : 16,
+            "category" :"Modern"
+          },
+          {
+            "id" : 10,
+            "name" : "Brown Bom",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-1_k3swol.png",
+            "price" : 35,
+            "category" : "Soft"
+          },
+          {
+            "id" : 11,
+            "name" : "Blue Beanie",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883930/images/product-9_mj9mxp.png",
+            "price" : 18,
+            "category" : "Soft",
+            "sale" : 10
+          },
+          {
+            "id" : 12,
+            "name" : "Brown Cowboy",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883930/images/product-8_tlhlar.png",
+            "price" : 35,
+            "category" : "Soft"
+          },
+          {
+            "id" : 13,
+            "name" : "Grey Brim",
+            "imageUrl" :  "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-5_lwrman.png",
+            "price" : 25,
+            "category" : "Tables",
+            "sale" : 15
+          },
+          {
+            "id" : 14,
+            "name" : " Beanie",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883930/images/product-7_dz1g0f.png",
+            "price" : 18,
+            "category" : "Tables"
+          },
+          {
+            "id" : 15,
+            "name" : "Palm  Cap",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-4_xquasb.png",
+            "price" : 14,
+            "category" : "Tables"
+          },
+          {
+            "id" : 16,
+            "name" : "Red Beanie",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-6_acdljc.png",
+            "price" : 18,
+            "category": "Modern",
+            "sale" :15
+          },
+          {
+            "id" : 17,
+            "name" : "Wolf Cap",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-2_f8cdal.png",
+            "price" : 14,
+            "category" : "Modern"
+          },
+          {
+            "id" : 18,
+            "name" : "Blue Snapback",
+            "imageUrl" : "https://res.cloudinary.com/urdan/image/upload/v1651883929/images/product-3_dn71jo.png ",
+            "price" : 16,
+            "category" :"Modern"
+          }
+    ]
+
+}
