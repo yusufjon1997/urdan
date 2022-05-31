@@ -1,25 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../redux/cart/cartAction';
 import { selectCartItems } from '../redux/cart/cartSelector';
-import { selectDisplayList } from '../redux/products/productSelector;
+import { selectDisplayList} from '../redux/products/productsSelector';
+import { addToWishlist } from '../redux/wishlist/wishlistAction';
+import { selectWishlist } from '../redux/wishlist/wishlistSelector';
+import ModalProduct from './ModalProduct';
+
 
 function Product({ product }) {
 
     // determining liststyle or grid
     const isDisplayList = useSelector(selectDisplayList);
-
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const dispatch = useDispatch();
     const cartItems = useSelector(selectCartItems);
+    const wishlistItems = useSelector(selectWishlist);
 
     const price = product.price / 100 * product.sale;
     const reduced_price = product.price - price;
 
 
-    const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
+    const addProductToCart = () => {
+        dispatch(addItemToCart(cartItems, product));
+        toast.success("Product added to cart")
+    } 
 
+    const openModal = ()=> {
+        setModalOpen(true);
+    }   
+
+    const AddtoWishlist = () => {
+        toast.success("Product added to wishlist")
+        dispatch(addToWishlist(wishlistItems , product))
+
+    }
 
     return (
         <>
@@ -30,12 +48,12 @@ function Product({ product }) {
                         <div className="row">
                             <div className="col-lg-4 col-sm-5">
                                 <div className="product-list-img">
-                                    <a href="product-details.html">
+                                    <Link to={`/shop/${product.id}`}>
                                         <img
                                             src={product.imageUrl}
                                             alt="Product Style"
                                         />
-                                    </a>
+                                    </Link>
                                     <div className="product-list-badge badge-right badge-pink">
                                         {
                                             product.sale ? <span>{`${product.sale}%`}</span> : <span></span>
@@ -45,8 +63,7 @@ function Product({ product }) {
                                         <button
                                             className="product-action-btn-2"
                                             title="Quick View"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"
+                                            onClick={openModal}
                                         >
                                             <i className="pe-7s-look" />
                                         </button>
@@ -60,11 +77,16 @@ function Product({ product }) {
                                             {product.name}
                                         </a>
                                     </h3>
+                                    <p>{product.category}</p>
                                     <div className="product-price">
-                                        {
-                                            product.sale && <span className="old-price">${reduced_price} </span>
-                                        }
-                                        <span className="new-price">${product.price} </span>
+                                    {
+                                        product.sale ?
+                                        <>
+                                            <span className="old-price">${product.price} </span>
+                                            <span className="new-price">${reduced_price}</span>
+                                        </> : <span className="new-price">${product.price} </span>
+                                        
+                                    }
                                     </div>
                                     <div className="product-list-rating">
                                         <i className=" ti-star" />
@@ -96,11 +118,12 @@ function Product({ product }) {
                                 </div>
                             </div>
                         </div>
+                        <ModalProduct isModalOpen={isModalOpen} setModalOpen={setModalOpen} productId={product.id} />
                     </div>
                     :
                     <div className="product-wrap mb-35" >
                         <div className="product-img img-zoom mb-25">
-                            <Link to="/product">
+                            <Link to={`/shop/${product.id}`}>
                                 <img src={product.imageUrl} alt="" />
                             </Link>
                             <div className="product-badge badge-top badge-right badge-pink">
@@ -112,14 +135,14 @@ function Product({ product }) {
                                 <button
                                     className="product-action-btn-1"
                                     title="Wishlist"
+                                    onClick={AddtoWishlist}
                                 >
                                     <i className="pe-7s-like" />
                                 </button>
                                 <button
                                     className="product-action-btn-1"
                                     title="Quick View"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"
+                                    onClick={openModal}
                                 >
                                     <i className="pe-7s-look" />
                                 </button>
@@ -140,16 +163,20 @@ function Product({ product }) {
                                     {product.name}
                                 </Link>
                             </h3>
+                            <p>{product.category}</p>
                             <div className="product-price">
-                                {
-                                    product.sale && <span className="old-price">${reduced_price} </span>
-                                }
-                                <span className="new-price">${product.price} </span>
+                            {
+                                product.sale ?
+                                <>
+                                    <span className="old-price">${product.price} </span>
+                                    <span className="new-price">${reduced_price}</span>
+                                </> : <span className="new-price">${product.price} </span>
+                                
+                            }
                             </div>
                         </div>
+                        <ModalProduct isModalOpen={isModalOpen} setModalOpen={setModalOpen} productId={product.id} />
                     </div>
-
-
             }
         </>
     )

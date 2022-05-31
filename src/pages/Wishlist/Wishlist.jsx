@@ -5,7 +5,7 @@ import WishlistProducts from '../../components/Wishlist/WishlistProducts'
 function Wishlist() {
   return (
     <div>
-        <Bredcrumb pageName="Wishlist" />
+        <Bredcrumb pageName="Sevimlilar" />
         <WishlistProducts />
     </div>
   )

@@ -1,11 +1,24 @@
-import React, { useId } from 'react'
+import React, { useCallback, useId, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { selectCategories } from '../../redux/categories/categorySelector';
+import { selectCategories , selectTotalProducts } from '../../redux/products/productsSelector';
+import { v4 as id } from 'uuid';
 
-function Sidebar() {
+function Sidebar({currentCategory , categoryChangeHandler, searchHandle}) {
     
+    const totalProducts = useSelector(selectTotalProducts)
     const categories = useSelector(selectCategories);
-    const id = useId();
+
+
+
+
+    const getNumberOfProducts = useCallback((name) => {
+        if(name === "All"){
+            return totalProducts.length
+        } else {
+           const total = totalProducts.filter(product => product.category === name)
+            return total.length
+        }
+    } , [totalProducts , categories]);
 
     return (
        
@@ -16,7 +29,7 @@ function Sidebar() {
             >
                 <div className="search-wrap-2">
                     <form className="search-2-form" action="#">
-                        <input placeholder="Search*" type="text" />
+                        <input placeholder="Search*" type="text" onChange={(e) => searchHandle(e)} />
                         <button className="button-search">
                             <i className=" ti-search " />
                         </button>
@@ -57,8 +70,14 @@ function Sidebar() {
                     <ul>
                         {
                             categories.map( category => {
-                                return <li key={id}> <a href="shop.html"> {category} <span>4</span></a>
-                                       </li>
+                                return <li key={id()}
+                                className={category === currentCategory ? 'active-category' : ''}
+                                onClick={()=> categoryChangeHandler(category)}
+                                >                                 
+                                <a >
+                                    {category}<span>{getNumberOfProducts(category)}</span>
+                                </a>
+                                </li>
                             })
                         }
                     </ul>

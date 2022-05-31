@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch , useSelector } from 'react-redux';
-import cartImg from '../../assets/images/cart/cart-1.jpg';
 import CouponCode from './CouponCode';
 import Shipping from './Shipping';
 import { selectCartItems} from '../../redux/cart/cartSelector';
 import CartItem from './CartItem';
+import { v4 as id } from 'uuid';
 
 function CartItems() {
 
@@ -31,45 +31,12 @@ function CartItems() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {
+                                            {   cartItems.length > 0 ?
                                                 cartItems.map( cartItem => {
-                                                    return <CartItem key={cartItem.id} item={cartItem} />
+                                                    return <CartItem key={id()} item={cartItem} />
                                                 })
+                                                : <tr><td><h5>Cart is empty</h5></td></tr>
                                             }
-
-                                            {/* <tr>
-                                                <td className="product-thumbnail">
-                                                    <a href="product-details.html">
-                                                        <img src={cartImg} alt="" />
-                                                    </a>
-                                                </td>
-                                                <td className="product-name">
-                                                    <h5>
-                                                        <a href="product-details.html">Stylish Swing Chair</a>
-                                                    </h5>
-                                                </td>
-                                                <td className="product-cart-price">
-                                                    <span className="amount">$120.00</span>
-                                                </td>
-                                                <td className="cart-quality">
-                                                    <div className="product-quality">
-                                                        <input
-                                                            className="cart-plus-minus-box input-text qty text"
-                                                            name="qtybutton"
-                                                            defaultValue={1}
-                                                        />
-                                                    </div>
-                                                </td>
-                                                <td className="product-total">
-                                                    <span>$120.00</span>
-                                                </td>
-                                                <td className="product-remove">
-                                                    <a href="#">
-                                                        <i className=" ti-trash " />
-                                                    </a>
-                                                </td>
-                                            </tr> */}
-                                            
                                         </tbody>
                                     </table>
                                 </div>

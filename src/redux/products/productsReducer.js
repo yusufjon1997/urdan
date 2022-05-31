@@ -1,24 +1,41 @@
-import { CategoryActionTypes } from "./productsActionTypes";
+import { ProductsActionTypes } from "./productsActionTypes";
 
 export const initialState = {
-    categoriesMap : [],
+    products : [],
     loading : false,
     error : null,
-    displayList : false 
+    displayList : false,
+    currentPage : 1,
+    filteredProducts : [] 
 }
 
-export const categoriesReducer = (state = initialState , action = {} ) => {
+export const productsReducer = (state = initialState , action = {} ) => {
     const { type , payload } = action;
 
     switch (type) {
-        case CategoryActionTypes.fetch_start:
+        case ProductsActionTypes.fetch_start:
             return {...state , loading : true}
-        case CategoryActionTypes.fetch_success:
-            return {...state , loading : false , categoriesMap : payload}
-        case CategoryActionTypes.fetch_failed : 
+            
+        case ProductsActionTypes.fetch_success:
+            return {...state , loading : false , products : payload}
+
+        case ProductsActionTypes.fetch_failed : 
             return {...state , loading : false , error : action.error}
-        case CategoryActionTypes.display_list : 
+
+        case ProductsActionTypes.display_list : 
             return { ...state , displayList : payload}
+        
+        case ProductsActionTypes.filterByCategory :
+            return {...state , filteredProducts : payload !== 'All' ? state.products.filter( product => {
+                return product.category === payload
+            }) : state.products}
+
+        case ProductsActionTypes.setCurrentPage : 
+            return {...state , currentPage : payload}
+
+        case ProductsActionTypes.searchProduct :
+            return { ...state , filteredProducts : state.products.filter(product => product.name.toLowerCase().includes(payload.toLowerCase()))}
+    
         default:
             return state;
     }

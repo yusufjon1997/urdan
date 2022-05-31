@@ -1,6 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import { selectCartItems , selectTotalPrice } from '../../redux/cart/cartSelector';
+import { v4 as id} from 'uuid'
 
 function CheckoutOrders() {
+
+    const cartItems = useSelector(selectCartItems);
+    const totalPrice = useSelector(selectTotalPrice);
+
     return (
         <div className="your-order-area">
             <h3>Your order</h3>
@@ -15,23 +22,28 @@ function CheckoutOrders() {
                     </div>
                     <div className="your-order-middle">
                         <ul>
-                            <li>
-                                Product Name X 1 <span>$329 </span>
-                            </li>
-                            <li>
-                                Product Name X 1 <span>$329 </span>
-                            </li>
+                        {
+                            cartItems.length > 0 ? 
+                                cartItems.map(cartItem => {
+                                    return <li key={id()}>
+                                            {cartItem.name} X {cartItem.quantity}  <span> ${cartItem.quantity * cartItem.price} </span>
+                                           </li>
+                                }) :
+                                <li>
+                                    <h5>Cart is empty</h5>
+                                </li>
+                        }
                         </ul>
                     </div>
                     <div className="your-order-info order-total">
                         <ul>
                             <li>
-                                Total <span>$273.00 </span>
+                                Total <span>${ totalPrice}</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div className="payment-method">
+                {/* <div className="payment-method">
                     <div className="pay-top sin-payment">
                         <input
                             id="payment_method_1"
@@ -84,31 +96,11 @@ function CheckoutOrders() {
                             </p>
                         </div>
                     </div>
-                    <div className="pay-top sin-payment sin-payment-3">
-                        <input
-                            id="payment-method-4"
-                            className="input-radio"
-                            type="radio"
-                            defaultValue="cheque"
-                            name="payment_method"
-                        />
-                        <label htmlFor="payment-method-4">
-                            PayPal{" "}
-                            <img alt="" src="assets/images/icon-img/payment.png" />
-                            <a href="#">What is PayPal?</a>
-                        </label>
-                        <div className="payment-box payment_method_bacs">
-                            <p>
-                                Make your payment directly into our bank account. Please
-                                use your Order ID as the payment reference.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                </div> */}
             </div>
-            <div className="Place-order btn-hover">
-                <a href="#">Place Order</a>
-            </div>
+            <button className="Place-order btn-hover" form="checkout-form" type="submit" style={{ border:'none' , background:"none"}}>
+                <a >Place Order</a>
+            </button>
         </div>
     )
 }

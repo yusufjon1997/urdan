@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../redux/user/userSelector';
-// improt {} from '../../redux/cart/'
+import { selectWishlistCount } from '../../redux/wishlist/wishlistSelector';
 import { selectTotalCartItems} from '../../redux/cart/cartSelector';
+
 
 function HeaderAction() {
 
@@ -14,10 +15,10 @@ function HeaderAction() {
     }
 
     // select user if it exist and change icon image
-
     const currentUser = useSelector(selectCurrentUser);
     const totalCartItems = useSelector(selectTotalCartItems);    
 
+    const totalWishlist = useSelector(selectWishlistCount);
 
 
     return (
@@ -49,9 +50,10 @@ function HeaderAction() {
                         </Link>
                 }
             </div>
-            <div className="header-action-style">
+            <div className="header-action-style header-action-cart">
                 <Link title="Wishlist" to="/wishlist">
                     <i className="pe-7s-like" />
+                    <span className="product-count bg-black">{totalWishlist}</span>
                 </Link>
             </div>
             <div className="header-action-style header-action-cart">

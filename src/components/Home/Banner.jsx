@@ -2,6 +2,8 @@ import React from 'react'
 import banner1 from '../../assets/images/banner/banner-20.png';
 import banner2 from '../../assets/images/banner/banner-21.png';
 import banner3 from '../../assets/images/banner/banner-22.png';
+import { Link } from 'react-router-dom'
+
 
 
 function Banner() {
@@ -13,17 +15,17 @@ function Banner() {
                         <div
                             className="banner-wrap mb-30"
                         >
-                            <a href="product-details.html">
+                            <Link to="/shop">
                                 <img src={banner1} alt="" />
-                            </a>
+                            </Link>
                             <div className="banner-content-11">
                                 <span>- 10% OFF</span>
                                 <h3>Chair &amp; Plant</h3>
                                 <h4>Urdan Collection</h4>
                                 <div className="btn-style-6 btn-hover">
-                                    <a href="product-details.html" className="btn theme-color">
+                                    <Link to="/shop" className="btn theme-color">
                                         Shop Now
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -33,17 +35,17 @@ function Banner() {
                             className="banner-wrap mb-30"
            
                         >
-                            <a href="product-details.html">
+                            <Link to="/shop">
                                 <img src={banner2} alt="" />
-                            </a>
+                            </Link>
                             <div className="banner-content-11">
                                 <span>- 20% OFF</span>
                                 <h3>Bd Sofa Sat</h3>
                                 <h4>Office Collection</h4>
                                 <div className="btn-style-6 btn-hover">
-                                    <a href="product-details.html" className="btn theme-color">
+                                    <Link to="/shop" className="btn theme-color">
                                         Shop Now
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -52,17 +54,17 @@ function Banner() {
                         <div
                             className="banner-wrap mb-30"
                         >
-                            <a href="product-details.html">
+                            <Link to="/shop">
                                 <img src={banner3} alt="" />
-                            </a>
+                            </Link>
                             <div className="banner-content-11">
                                 <span>- 30% OFF</span>
                                 <h3>Hanging Light</h3>
                                 <h4>Urdan Collection</h4>
                                 <div className="btn-style-6 btn-hover">
-                                    <a href="product-details.html" className="btn theme-color">
+                                    <Link to="/shop" className="btn theme-color">
                                         Shop Now
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

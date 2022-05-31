@@ -9,7 +9,7 @@ function Testimonial() {
         <div className="testimonial-area pb-100">
             <div className="container">
                 <div
-                    className="section-title-2 st-border-center text-center mb-75"
+                    className="section-title-2 st-border-center text-center mb-75 pt-5"
                     
                 >
                     <h2>Testimonial</h2>

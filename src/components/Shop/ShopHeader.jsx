@@ -1,7 +1,7 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { displayList } from '../../redux/categories/categoryAction';
-import { selectDisplayList} from '../../redux/categories/categorySelector';
+import { displayList } from '../../redux/products/productsAction';
+import { selectDisplayList} from '../../redux/products/productsSelector';
  
 function ShopHeader() {
 
@@ -15,16 +15,15 @@ function ShopHeader() {
     const viewGridStyle = () => {
         dispatch(displayList(false))
     }
+
+
+
  
     return (
         <div className="shop-topbar-wrapper mb-40">
             <div
                 className="shop-topbar-left"
-
             >
-                <div className="showing-item">
-                    <span>Showing 1–12 of 60 results</span>
-                </div>
             </div>
             <div
                 className="shop-topbar-right"

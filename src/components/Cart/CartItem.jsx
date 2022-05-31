@@ -40,13 +40,13 @@ function CartItem({ item }) {
             </td>
             <td className="cart-quality">
                 <div className="product-quality">
-                    <div class="dec qtybutton" onClick={decrement}>-</div>
+                    <div className="dec qtybutton" onClick={decrement}>-</div>
                     <input
                         className="cart-plus-minus-box input-text qty text"
                         name="qtybutton"
                         placeholder={item.quantity}
                     />
-                    <div class="inc qtybutton" onClick={increment} >+</div>
+                    <div className="inc qtybutton" onClick={increment} >+</div>
                 </div>
 
             </td>

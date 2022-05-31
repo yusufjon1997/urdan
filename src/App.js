@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-
+import { ToastContainer } from 'react-toastify';
 import { Routes , Route } from 'react-router-dom';
 
 import './assets/styles/style.scss';
@@ -12,7 +12,6 @@ import Shop from './pages/Shop/Shop';
 import Wishlist from './pages/Wishlist/Wishlist';
 import Checkout from './pages/Checkout/Checkout';
 import Cart from './pages/Cart/Cart';
-import ProductDetails from './components/Shop/SingleProduct/ProductDetails';
 import SingleProduct from './components/Shop/SingleProduct/SingleProduct';
 import Auth from './pages/Auth/Auth';
 import ScrollToTop from './utilities/SrollToTop';
@@ -38,12 +37,6 @@ function App() {
   
   }, []);
 
-
-
-
-
-
-
   return (
     <div className="App">
       <ScrollToTop />
@@ -51,8 +44,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/shop' element={<Shop />} />
-        <Route path='/product' element={<SingleProduct />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path='shop/:id' element={<SingleProduct />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/cart' element={<Cart />} />
@@ -61,6 +54,7 @@ function App() {
         <Route path='/my-account' element={<MyAccount />} />
       </Routes>
       <Footer />
+      <ToastContainer autoClose={1500} />
     </div>
   );
 }

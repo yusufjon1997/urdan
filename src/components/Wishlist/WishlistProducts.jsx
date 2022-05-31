@@ -1,6 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectWishlist } from '../../redux/wishlist/wishlistSelector'
+import WishlistProduct from './WishlistProduct';
 
 function WishlistProducts() {
+
+    const wishlistItems = useSelector(selectWishlist);
+    console.log(wishlistItems)
+    
     return (
         <div className="wishlist-area pb-100 pt-100">
             <div className="container">
@@ -21,84 +28,12 @@ function WishlistProducts() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td className="product-remove">
-                                                    <a href="#">×</a>
-                                                </td>
-                                                <td className="product-thumbnail">
-                                                    <a href="product-details.html">
-                                                        <img src="assets/images/cart/cart-1.jpg" alt="" />
-                                                    </a>
-                                                </td>
-                                                <td className="product-name">
-                                                    <h5>
-                                                        <a href="product-details.html">Stylish Swing Chair</a>
-                                                    </h5>
-                                                </td>
-                                                <td className="product-wishlist-price">
-                                                    <span className="amount">$120.00</span>
-                                                </td>
-                                                <td className="stock-status">
-                                                    <span>
-                                                        <i className="las la-check" /> In Stock
-                                                    </span>
-                                                </td>
-                                                <td className="wishlist-cart btn-hover">
-                                                    <a href="#">Add to Cart</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="product-remove">
-                                                    <a href="#">×</a>
-                                                </td>
-                                                <td className="product-thumbnail">
-                                                    <a href="product-details.html">
-                                                        <img src="assets/images/cart/cart-2.jpg" alt="" />
-                                                    </a>
-                                                </td>
-                                                <td className="product-name">
-                                                    <h5>
-                                                        <a href="product-details.html">Modern Lounge Chairs</a>
-                                                    </h5>
-                                                </td>
-                                                <td className="product-wishlist-price">
-                                                    <span className="amount">$120.00</span>
-                                                </td>
-                                                <td className="stock-status">
-                                                    <span>
-                                                        <i className="las la-check" /> In Stock
-                                                    </span>
-                                                </td>
-                                                <td className="wishlist-cart btn-hover">
-                                                    <a href="#">Add to Cart</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="product-remove">
-                                                    <a href="#">×</a>
-                                                </td>
-                                                <td className="product-thumbnail">
-                                                    <a href="product-details.html">
-                                                        <img src="assets/images/cart/cart-3.jpg" alt="" />
-                                                    </a>
-                                                </td>
-                                                <td className="product-name">
-                                                    <h5>
-                                                        <a href="product-details.html">Modern Swivel Chair</a>
-                                                    </h5>
-                                                </td>
-                                                <td className="product-wishlist-price">
-                                                    <span className="amount">$120.00</span>
-                                                </td>
-                                                <td className="stock-status">
-                                                    <span>
-                                                        <i className="las la-check" /> In Stock
-                                                    </span>
-                                                </td>
-                                                <td className="wishlist-cart btn-hover">
-                                                    <a href="#">Add to Cart</a>
-                                                </td>
-                                            </tr>
+                                            {
+                                                wishlistItems &&
+                                                wishlistItems.map(item => {
+                                                    return <WishlistProduct product={item} key={item.id} />
+                                                })
+                                            }
                                         </tbody>
                                     </table>
                                 </div>

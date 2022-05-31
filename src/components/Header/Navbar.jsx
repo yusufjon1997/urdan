@@ -8,16 +8,16 @@ function Navbar() {
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Bosh sahifa</Link>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/shop">Maxsulotlar</Link>
+                    <Link to="/shop">Shop</Link>
                 </li>
                 <li>
-                    <Link to="/about">Biz haqimizda</Link>
+                    <Link to="/about">About Us</Link>
                 </li>
                 <li>
-                    <Link to="/contact">Bizga bog'laning</Link>
+                    <Link to="/contact">Contact Us</Link>
                 </li>
             </ul>
         </nav>

@@ -10,7 +10,7 @@ function About() {
         <Bredcrumb pageName="About Us"/>
         <AboutUs />
         <FunFact />
-        <Testimonial />
+        {/* <Testimonial /> */}
     </div>
   )
 }

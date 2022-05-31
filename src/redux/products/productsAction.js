@@ -1,37 +1,22 @@
 import { createAction } from '../../utilities/reducer/reducerUtils';
-import { CategoryActionTypes } from './productsActionTypes';
+import { ProductsActionTypes } from './productsActionTypes';
 import axios from 'axios';
 
-// export const setCategoryMap = (categoriesMap) => createAction(CategoryActionTypes.setCategoryMap , categoriesMap);  
 
+export const fetchProductsAsync = () => async (dispatch) => {
 
-export const fetchCategories_start = () => {
-    createAction(CategoryActionTypes.fetch_start)
-}
-
-export const fetchCategories_success = (categoriesArray) => {
-    createAction(CategoryActionTypes.fetch_success,categoriesArray)
-}
-
-export const fetchCategories_failed = (error) => {
-    createAction(CategoryActionTypes.fetch_failed , error)
-}
-
-export const fetchCategoriesAsync = () => async (dispatch) => {
-
-    dispatch({type : CategoryActionTypes.fetch_start});
+    dispatch({type : ProductsActionTypes.fetch_start});
 
     try {
-        const response = await axios.get('http://localhost:5000/products');
-        console.log(response);
+        const response = await axios.get('https://fakeapiforecommerce.herokuapp.com/products');
         dispatch({
-            type : CategoryActionTypes.fetch_success,
+            type : ProductsActionTypes.fetch_success,
             payload : response.data
         });
 
     } catch (error) {
         dispatch({
-            type : CategoryActionTypes.fetch_failed,
+            type : ProductsActionTypes.fetch_failed,
             error : error
         })
     }
@@ -39,5 +24,11 @@ export const fetchCategoriesAsync = () => async (dispatch) => {
 }
 
 export const displayList = (boolean) => {
-   return createAction(CategoryActionTypes.display_list , boolean)
+   return createAction(ProductsActionTypes.display_list , boolean)
 }  
+
+export const filterByCategory = (category) => createAction(ProductsActionTypes.filterByCategory , category );
+
+export const setCurrentPage = (currentPage) => createAction(ProductsActionTypes.setCurrentPage, currentPage);
+
+export const searchProduct = (searchValue) => createAction(ProductsActionTypes.searchProduct , searchValue);
