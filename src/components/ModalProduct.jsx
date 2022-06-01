@@ -20,8 +20,8 @@ function ModalProduct({ isModalOpen, setModalOpen, productId }) {
     }
 
 
-    const price = product.price / 100 * product?.sale;
-    const reduced_price = product.price - price;
+    const price = product?.price / 100 * product?.sale;
+    const reduced_price = product?.price - price;
 
 
 
@@ -80,9 +80,9 @@ function ModalProduct({ isModalOpen, setModalOpen, productId }) {
                                                 {
                                                     product?.sale ?
                                                         <>
-                                                            <span className="old-price">${product.price} </span>
+                                                            <span className="old-price">${product?.price} </span>
                                                             <span className="new-price">${reduced_price}</span>
-                                                        </> : <span className="new-price">${product.price} </span>
+                                                        </> : <span className="new-price">${product?.price} </span>
                                                 }
                                             </div>
                                             <div className="product-color product-color-active product-details-color">

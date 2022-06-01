@@ -20,8 +20,8 @@ function Product({ product }) {
     const cartItems = useSelector(selectCartItems);
     const wishlistItems = useSelector(selectWishlist);
 
-    const price = product.price / 100 * product.sale;
-    const reduced_price = product.price - price;
+    const price = product?.price / 100 * product?.sale;
+    const reduced_price = product?.price - price;
 
 
     const addProductToCart = () => {
@@ -80,11 +80,11 @@ function Product({ product }) {
                                     <p>{product.category}</p>
                                     <div className="product-price">
                                     {
-                                        product.sale ?
+                                        product?.sale ?
                                         <>
-                                            <span className="old-price">${product.price} </span>
+                                            <span className="old-price">${product?.price} </span>
                                             <span className="new-price">${reduced_price}</span>
-                                        </> : <span className="new-price">${product.price} </span>
+                                        </> : <span className="new-price">${product?.price} </span>
                                         
                                     }
                                     </div>
@@ -166,11 +166,11 @@ function Product({ product }) {
                             <p>{product.category}</p>
                             <div className="product-price">
                             {
-                                product.sale ?
+                                product?.sale ?
                                 <>
-                                    <span className="old-price">${product.price} </span>
+                                    <span className="old-price">${product?.price} </span>
                                     <span className="new-price">${reduced_price}</span>
-                                </> : <span className="new-price">${product.price} </span>
+                                </> : <span className="new-price">${product?.price} </span>
                                 
                             }
                             </div>
